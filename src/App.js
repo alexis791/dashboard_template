@@ -4,6 +4,7 @@ import { BrowserRouter, Route} from 'react-router-dom'
 /**Compnents */
 import Header from './containers/Header'
 import Menu from './containers/Menu'
+import Content from './containers/Content'
 import Planteles from './components/planeacion_educativa/Planteles'
 import Edificios from './components/planeacion_educativa/Edificios'
 import Aulas from './components/planeacion_educativa/Aulas'
@@ -15,12 +16,12 @@ const App = () => {
             <BrowserRouter>
                 <Header />
                 <Menu />
-                <div className="content">
+                <Content>
                     <Route path="/planteles" component={Planteles} />
                     <Route path="/edificios" component={Edificios} />
                     <Route path="/aulas" component={Aulas} />
                     <Route path="/" exact component={Home} />
-                </div>
+                </Content>
             </BrowserRouter>
         </>
     )
