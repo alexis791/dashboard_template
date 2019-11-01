@@ -27,3 +27,51 @@
   width: 100vw;
   height: 100vh;
 }
+
+.menu-enter{
+  transform: translateX(0);
+  transition: all .5s;
+}
+
+.menu-enter-active{
+  transform: translateX(0);
+}
+
+.menu-exit{
+  transform: translateX(-100%);
+  transition: all .5s;
+}
+
+.menu-exit-done{
+  transform: translateX(-100%);
+}
+
+.wrapper-enter {
+  grid-template-columns: 250px 1fr 1fr 1fr;
+}
+
+.wrapper-enter-active {
+  grid-template-columns: 250px 1fr 1fr 1fr;
+  transition: all 2s;
+}
+
+.wrapper-exit-active .menu{
+  display: none;
+}
+
+.wrapper-exit-done .menu{
+  display: none;
+}
+
+.wrapper-exit {
+  grid-template-columns: 0px 1fr 1fr 1fr;
+}
+
+.wrapper-exit-done {
+  grid-template-columns: 0px 1fr 1fr 1fr;
+  transition: all 2s;
+}
+
+.wrapper-hidden-menu .menu{
+  display: none;
+}

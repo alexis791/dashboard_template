@@ -9,14 +9,17 @@ import ListaPlanteles from '../components/utilities/ListaPlanteles'
 import Tooltip from '@material-ui/core/Tooltip'
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
+
+  console.log(props)
+
   return (
     <div className='header'>
       <AppBar position="static">
         <Toolbar>
           <Grid item xs={6}>
             <Tooltip title="Menú">
-                <IconButton edge="start" color="inherit" aria-label="menu">
+                <IconButton edge="start" color="inherit" aria-label="menu" onClick={props.menuButton}>
                     <MenuIcon />
                 </IconButton>
             </Tooltip>
