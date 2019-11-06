@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BrowserRouter, Route} from 'react-router-dom' 
+import { BrowserRouter, Route, Switch} from 'react-router-dom' 
 
 /**Compnents */
 import Header from './containers/Header'
@@ -9,6 +9,7 @@ import Planteles from './components/planeacion_educativa/Planteles'
 import Edificios from './components/planeacion_educativa/Edificios'
 import Aulas from './components/planeacion_educativa/Aulas'
 import Home from './components/Home'
+import AulaNueva from './components/planeacion_educativa/AulaNueva'
 import { CSSTransition } from 'react-transition-group'
 
 const App = () => {
@@ -26,10 +27,13 @@ const App = () => {
                     <Header menuButton={handlerMenu} stateMenu={menu}/>
                     <Menu stateMenu={menu}/>
                     <Content>
-                        <Route path="/planteles" component={Planteles} />
-                        <Route path="/edificios" component={Edificios} />
-                        <Route path="/aulas" component={Aulas} />
-                        <Route path="/" exact component={Home} />
+                        <Switch>
+                            <Route path="/planteles" component={Planteles} />
+                            <Route path="/edificios" component={Edificios} />
+                            <Route exact path="/aulas" component={Aulas} />
+                            <Route path="/aulas/crear" component={AulaNueva} />
+                            <Route path="/" exact component={Home} />
+                        </Switch>
                     </Content>
                 </BrowserRouter>
             </div>

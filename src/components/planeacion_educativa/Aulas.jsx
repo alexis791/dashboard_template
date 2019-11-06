@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import { Grid, Typography, Paper, Container, makeStyles, Divider, Button } from '@material-ui/core'
 import { Add, AddBox, ArrowUpward } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 import MaterialTable from 'material-table'
 
 
@@ -52,7 +53,7 @@ const styles = makeStyles( theme => ({
     }
 }) )
 
-const Aulas = () => {
+const Aulas = (props) => {
 
     const classes = styles()
 
@@ -75,10 +76,12 @@ const Aulas = () => {
                                 </Typography>
                             </Grid>
                             <Grid container item xs={6}  justify="flex-end">
-                                <Button variant="contained" size="medium" color="primary" className={classes.margin}>
-                                    <Add/>
-                                    Nueva Aula
-                                </Button>     
+                                <Link to={`${props.match.url}/crear`}>
+                                    <Button variant="contained" size="medium" color="primary" className={classes.margin}>
+                                        <Add/>
+                                        Nueva Aula
+                                    </Button>     
+                                </Link>
                             </Grid>
                         </Grid>
                     </Paper>
