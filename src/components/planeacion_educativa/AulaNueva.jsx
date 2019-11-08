@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container,Grid, Paper, makeStyles, FormControl, TextField, Divider, Typography, Button, Breadcrumbs } from '@material-ui/core'
+import { Container,Grid, Paper, makeStyles, FormControl, TextField, Divider, Typography, Button, Breadcrumbs, Select, MenuItem, InputLabel } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { NavigateNext } from '@material-ui/icons'
 
@@ -17,6 +17,9 @@ const styles = makeStyles( theme => ({
     textField:{
         width: '100%'
     },
+    selectMargin:{
+        margin: theme.spacing(2,0)
+    }
 }) )
 
 function handleClick(event) {
@@ -27,6 +30,11 @@ function handleClick(event) {
 const AulaNueva = () => {
 
     const classes = styles()
+    const [age, setAge] = React.useState('');
+
+    const handleChange = event => {
+      setAge(event.target.value);
+    };
 
     return(
         <>
@@ -54,7 +62,7 @@ const AulaNueva = () => {
                     <Grid container>
                         <Grid item xs={6} >
                             <Typography variant="h5" component="h4">
-                                Crear Nueva Aula
+                                Crear Aula
                             </Typography>
                         </Grid>
                         <Grid container item md={6} justify="flex-end">
@@ -97,14 +105,22 @@ const AulaNueva = () => {
                                 variant="outlined"
                             />
                         </FormControl>
-                        <FormControl className={classes.textField}>
-                            <TextField
-                                required
+                        <FormControl variant="outlined" className={`${classes.textField} ${classes.selectMargin}`}>
+                            <InputLabel id="Eficio">
+                            Edificio *
+                            </InputLabel>
+                            <Select
                                 id="edificio"
-                                label="Edificio"
-                                margin="normal"
-                                variant="outlined"
-                            />
+                                value={age}
+                                onChange={handleChange}
+                            >
+                            <MenuItem value=''>
+                                <em>Seleccionar</em>
+                            </MenuItem>
+                            <MenuItem value={1}>5-M</MenuItem>
+                            <MenuItem value={2}>5-N</MenuItem>
+                            <MenuItem value={3}>5-K</MenuItem>
+                            </Select>
                         </FormControl>
                         <Grid container justify="space-evenly" className={classes.root}>
                             <Button variant="contained" color="primary" className={classes.button}>
